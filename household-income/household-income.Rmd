@@ -1,0 +1,528 @@
+---
+title: "Visualisation of Household Income Data of Singapore"
+author: "YuXuan Tay"
+date: "Sunday, February 08, 2015"
+output:
+  html_document:
+    fig_height: 6
+    fig_width: 8
+    keep_md: yes
+    toc: yes
+---
+
+```{r options, echo=FALSE}
+knitr::opts_chunk$set(results = "hold", fig.show = "hold", message = F, warning = F)
+```
+
+## Introduction
+
+In this exercise, I will attempt to create a few visualisation of the household income data of Singapore.
+The purpose of this exercise is to gain an understanding of the income distribution and trend in Singapore.
+Plots will be drawn with the `ggvis` visualisation package, which produces SVG graphics.
+This means they will be scalable to the reader's discretion.
+
+The data is obtained from [data.gov.sg](http://data.gov.sg/), 
+which is the national database for public government data. 
+Specifically, I will be exploring the average household income and distribution data prepared by the
+Singapore Department of Statistics ([SingStats](http://www.singstat.gov.sg/)). The data contained information in the years 2000 to 2013.
+
+## Data
+
+```{r libraries}
+# load libraries
+library(tidyr); library(dplyr); library(stringr)
+library(ggplot2); library(ggvis)
+library(knitr)
+```
+
+The 3 main datasets I will be looking at are as follows:
+
+- average and median monthly household income
+- average monthly household income by deciles
+- households by monthly household income
+
+SingStats prepared a few similar datasets depending on the definitions of households and income.
+For households, the following definitions are available:
+
+- resident households
+- resident **employed** households
+- resident households **per household member**
+- resident **employed** households **per household member**
+
+For income,
+
+- income **including** employer CPF contributions
+- income **excluding** employer CPF contributions
+
+For consistency, I have used the datasets for resident employed households 
+and for income excluding employer CPF contributions. 
+That is because I am interested in the income distribution of Singapore and would like to exclude the unemloyed.
+Excluding employer CPF contributions would be to do a fair comparison since foreigners are also included
+and they do not receive these contributions.
+
+## Average and Median Monthly Household Income
+
+Let's first look at the average and median monthly household income.
+All the data presented in this page is obtained directly from the [data.gov.sg](https://data.gov.sg) website
+with minimal processing to format the column names and save it into tab-separated text files.
+Note that the income amounts presented are nominal numbers without accounting for inflation.
+
+```{r average.data, results = 'asis'}
+income.average <- read.table('average_and_median_monthly_household_income.txt', header = T)
+kable(income.average, caption = 'Table of Mean and Median Household Income')
+```
+
+### Mean and Median Income Levels
+
+Let's look at how this appears in a graph.
+
+```{r average.line, results = 'asis'}
+income.average %>%
+    select(year, mean, median) %>%
+    ggvis(~factor(year)) %>%
+    layer_lines(y = ~mean, stroke = "Mean") %>%
+    layer_lines(y = ~median, stroke = "Median") %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Income', title_offset = 60) %>%
+    add_legend('stroke', title = 'Measure')
+```
+
+A few observations can be made. From year 2000 to 2004, the average income levels were quite flat. 
+This was possibly due to the dot-com bust, which led to a recession in Singapore. 
+From 2004 onwards, income levels increased quickly except during 2009 due to the subprime mortgage crisis.
+
+Another observation is that the mean income is substantially higher than the median income.
+This is one of the arguments why mean income is not a good indicator of income levels in a country.
+Mean income is not a robust measure of average as it is affected by extreme values.
+A right-skewed income distribution will shift the mean income level even though 
+this does not mean an elevated income for the majority of the population.
+The skewed income distribution of Singapore will be more evident later when we explore the average income by deciles.
+In general, it is always a good idea to be wary of mean or average values if the distribution of 
+the variable is not clearly known.
+
+On the other hand, the median income level gives the amount that separates the population of
+income earners into half: 50% of them earn less than the median level and the other 50% earn more.
+It is robust to extreme values since changes at both ends of the distribution do not affect it.
+
+```{r average.index}
+income.average <- mutate(income.average,
+                         mean.index.2000 = mean / first(mean),
+                         median.index.2000 = median / first(median))
+```
+
+The nominal mean and median income levels have grown by 
+`r round((last(income.average$mean.index.2000) - 1) * 100, digits = 2)`% and
+`r round((last(income.average$median.index.2000) - 1) * 100, digits = 2)`% respectively
+in the 13-year period, with a compounded annual growth of
+`r round((last(income.average$mean.index.2000) ^ (1/13) - 1) * 100, digits = 2)`% and
+`r round((last(income.average$median.index.2000) ^ (1/13) - 1) * 100, digits = 2)`% respectively.
+
+### Ratio of Mean to Median Income Levels
+
+Let us now examine the ratio of mean to median levels across the years.
+
+```{r mean.median.ratio, results = 'asis'}
+# compute mean-median ratio
+income.average <- mutate(income.average, mean.median.ratio = mean / median)
+income.average %>%
+    select(year, mean.median.ratio) %>%
+    ggvis(~factor(year), ~mean.median.ratio) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Mean-Median Ratio', title_offset = 50)
+```
+
+At first glance, it seems that, except for 2013, the mean-median ratio has been in a general increasing trend, 
+which means that high earners are growing their income faster than low earners. 
+However, the increase has been relatively low, at
+`r with(income.average, round((max(mean.median.ratio) / min(mean.median.ratio) - 1) * 100, digits = 2))`%
+over the 12-year period. This suggests that the income distribution might be quite consistent over the period.
+I think including zero into the y-axis will make this more obvious, but have not figured out how to 
+set the limits of the axes with `ggvis`. 
+This is also the reason why the axes in all other plots are unadjusted even though 
+it would be a good idea to include zero in the y-axis in a few other plots to give a right sense of scale.
+
+## Average Monthly Household Income Distribution by Deciles
+
+A better way to explore the income distribution is to look at the average monthly income by deciles.
+Do note that in this data, the numbers are for the average income by deciles and **not** of income at decile levels.
+In other words, the numbers for decile 1 is for the average income for the bottom 10 percentile of households,
+and not the 10th percentile level of income.
+The 10th percentile level of income would actually represent the maximum income of 
+the bottom 10 percentile of household.
+
+```{r decile.data, results = 'asis'}
+income.decile <- read.table('average_monthly_household_income_by_deciles.txt', header = T)
+kable(income.decile, caption = 'Table of Average Household Income by Decile')
+```
+
+I would first do some transformation to the data to compute a few other variables of interest.
+It would also be necessary for me to reshape it from wide to long format with the `tidyr` package.
+
+```{r decile.transform}
+# convert to long format
+income.decile <- gather(income.decile, decile, income, -year)
+# convert decile from string into numeric values
+income.decile <- mutate(income.decile,
+                        decile = as.numeric(str_extract(decile, '\\d+')))
+# merge average dataset with decile dataset
+income.average <- income.average %>%
+                    select(year, mean, median) %>%
+                    gather(decile, income, -year)
+income.decile <- rbind(income.decile, income.average)
+# format factor values
+income.decile <- mutate(income.decile, decile = factor(decile, levels = c(1:10, 'mean', 'median')))
+```
+
+### Line Graph of Average Income by Deciles
+
+This is how the original data looks like in a graph. 
+The mean and median income levels have been included for comparisons.
+
+```{r decile.line, results = 'asis'}
+income.decile %>%
+    select(year, decile, income) %>%
+    mutate(strokeWidth = ifelse(decile %in% c('mean', 'median'), 2, 1),
+           opacity = ifelse(decile %in% c('mean', 'median'), 0.7, 1)) %>%
+    ggvis(~factor(year), ~income, stroke = ~factor(decile), 
+          strokeWidth := ~strokeWidth, opacity := ~opacity) %>%
+    group_by(decile) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Average Income', title_offset = 60) %>%
+    add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')
+```
+
+It immediately becomes obvious how skewed the income distribution of Singapore is,
+with the top decile earners making substantially more than even the 2nd highest decile earners.
+The general trend across the deciles is similar to the overall average income level.
+
+Curiously, the top decile suffered a significant income drop in year 2013, 
+while the other deciles were unaffected. I am puzzled as to the exact cause.
+
+### Income Growth from Year 2000 by Deciles
+
+For better comparision of growth, I will normalise the income levels of each decile to the year 2000 levels.
+
+```{r decile.index, results = 'asis'}
+# normalise average income of each decile to year 200 levels
+income.decile <- income.decile %>%
+                    group_by(decile) %>%
+                    arrange(year) %>%
+                    mutate(index.2000 = income / first(income)) %>%
+                    ungroup()
+income.decile %>%
+    select(year, decile, index.2000) %>%
+    mutate(strokeWidth = ifelse(decile %in% c('mean', 'median'), 2, 1),
+           opacity = ifelse(decile %in% c('mean', 'median'), 0.7, 1)) %>%
+    ggvis(~factor(year), ~index.2000, stroke = ~factor(decile), 
+          strokeWidth := ~strokeWidth, opacity := ~opacity) %>%
+    group_by(decile) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Income Index to Year 2000 Levels', title_offset = 40) %>%
+    add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')
+```
+
+Income levels generally experienced healthy growth from year 2004 onwards.
+The bottom income earners actually suffered stagnant income growth all the way till year 2009
+and have significantly lagged behind the other deciles as a result.
+
+It can also be observed that the extent income growth of each decile tend to follow decile levels,
+with higher deciles experiencing better growth than lower deciles.
+
+The total and compounded annual growth rates are presented in the table below.
+
+```{r decile.growth, results = 'asis'}
+income.growth <- income.decile %>%
+                    group_by(decile) %>%
+                    summarise(growth.total = (last(index.2000) - 1) * 100,
+                              growth.annual = (last(index.2000) ^ (1/13) - 1) * 100) %>%
+                    ungroup()
+kable(income.growth, digits = 2, caption = 'Table of Growth Rates between Years 2000 and 2013 by Deciles')
+```
+
+Next let's look at the distribution of income relative to the total income to investigate 
+how it has changed over the years.
+
+```{r decile.proportion}
+# remove average values and compute proportion numbers
+income.decile <- income.decile %>%
+                    filter(decile %in% 1:10) %>%
+                    mutate(decile = as.numeric(levels(decile)[decile]),
+                           population.cumprop = decile / 10)
+income.decile <- income.decile %>%
+                    group_by(year) %>%
+                    arrange(decile) %>%
+                    mutate(income.prop = income / sum(income),
+                           income.cumprop = cumsum(income.prop)) %>%
+                    ungroup()
+```
+
+### Line Graph of Income Proportion by Deciles
+
+First, a line graph for simple comparisons
+
+```{r decile.prop.line, results = 'asis'}
+income.decile %>%
+    ggvis(~factor(year), ~income.prop, stroke = ~factor(decile)) %>%
+    group_by(decile) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Income Proportion', title_offset = 50) %>%
+    add_legend('stroke', title = 'Decile')
+```
+
+Despite the unequal distribution of income, it can be observed from this graph that the distribution
+has been quite consistent through the years.
+Except for the slight increase in income proportion of the top decile earners,
+the income proportion is quite flat for each decile from year 2000 to year 2013.
+
+### Stacked Area Graph of Income Proportion by Deciles
+
+The unequal distribution can be more easily observed in a stacked area graph.
+
+```{r decile.stackedarea, results = 'asis'}
+income.decile %>%
+    group_by(year) %>%
+    mutate(to = income.cumprop, from = c(0, to[-n()])) %>%
+    ggvis(x = ~factor(year), fill = ~factor(decile), opacity := 0.8) %>%
+    group_by(decile) %>%
+    layer_ribbons(y = ~from, y2 = ~to) %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Cumulative Income Proportion') %>%
+    add_legend('fill', title = 'Decile')
+```
+
+It can be observed that the top decile earners make more than 
+the total income of the bottom 5 deciles earners.
+In other words, the top 10% of earners made more income than the bottom 50% of income earners. WOW!
+Similar comparisons can be made with top 2 vs bottom 6 deciles and top 3 vs bottom 7 deciles.
+The top 30% of earners are responsible for more than half the total income of Singapore earners.
+
+The cumulative proportion of income in Singapore from the bottom decile is show in the table below.
+
+```{r decile.cumprop, results = 'asis'}
+income.decile %>%
+    filter(year == 2013) %>%
+    select(decile, income.cumprop) %>%
+    mutate(income.cumprop = income.cumprop * 100) %>%
+    kable(digits = 2, caption = 'Table of Cumulative Proportion of Income by Deciles in 2013')
+```
+
+### Lorenz Curve
+
+The unequal distribution can also be shown in a [Lorenz curve](https://en.wikipedia.org/wiki/Lorenz_curve), 
+which plots the cumulative income proportion against cumulative population proportion.
+The straight line joining zero and one shows perfect equality of income distribution.
+
+```{r decile.lorenz, results = 'asis'}
+income.decile %>%
+    select(year, population.cumprop, income.cumprop) %>%
+    rbind(data.frame(year = 2000:2013, population.cumprop = 0, income.cumprop = 0)) %>%
+    rbind(data.frame(year = NA, population.cumprop = c(0, 1), income.cumprop = c(0, 1))) %>%
+    ggvis(~population.cumprop, ~income.cumprop, stroke = ~factor(year)) %>%
+    group_by(year) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Cumulative Population Proportion') %>%
+    add_axis('y', title = 'Cumulative Income Proportion', title_offset = 40) %>%
+    add_legend('stroke', title = 'Year', values = 2000:2013)
+```
+
+Consistent with the observation with the stacked area graph, the distribution of income
+is fairly contant as shown by the well overlayed curves of 14 years of data.
+
+### Ratio to Average Income of Bottom 10% by Deciles
+
+Another way to show unequal income distrubution in a country is the ratio of 
+the average income of the top 10 percentile to that of the bottom 10 percentile.
+I have done so for all the deciles to the bottom decile as follows.
+
+```{r decile.multiple, results = 'asis'}
+# compute ratio of average income to bottom decile
+income.decile <- income.decile %>%
+                    group_by(year) %>%
+                    arrange(decile) %>%
+                    mutate(bottom.multiple = income / first(income)) %>%
+                    ungroup()
+income.decile %>%
+    select(year, decile, bottom.multiple) %>%
+    ggvis(~factor(year), ~bottom.multiple, stroke = ~factor(decile)) %>%
+    group_by(decile) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Multiple') %>%
+    add_legend('stroke', title = 'Decile')
+```
+
+It can be observed that the top decile earned on average
+`r with(income.decile, round(bottom.multiple[year == 2013 & decile == 10], 2))` times
+the average income of the bottom decile in 2013.
+Even the average income 2nd highest decile was 
+`r with(income.decile, round(bottom.multiple[year == 2013 & decile == 9], 2))` times
+the bottom decile in 2013.
+While the ratios to the bottom decile had increase from year 2000, 
+the consolation is that they has been relatively flat from around 2008 and 2009 onwards.
+This meant that the bottom decile has been able to grow their income at the same proportion as the other deciles.
+
+### Ratio to Average Income of Bottom 20% by Quintiles
+
+It is usually the case that the ratio of income is made between the top 20% against the bottom 20%,
+which will be what I attempt next.
+
+```{r quintile.multiple, results = 'asis'}
+# create quintile groups and compute mean income
+income.quintile <- income.decile %>%
+                        mutate(quintile = (decile + 1) %/% 2) %>%
+                        group_by(year, quintile) %>%
+                        summarise(income = mean(income)) %>%
+                        ungroup()
+# compute ratio of average income to bottom quintile
+income.quintile <- income.quintile %>%
+    group_by(year) %>%
+    arrange(quintile) %>%
+    mutate(bottom.multiple = income / first(income)) %>%
+    ungroup()
+income.quintile %>%
+    select(year, quintile, bottom.multiple) %>%
+    ggvis(~factor(year), ~bottom.multiple, stroke = ~factor(quintile)) %>%
+    group_by(quintile) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Multiple') %>%
+    add_legend('stroke', title = 'Quintile')
+```
+
+The general trend is the same, with the top 20% earning 
+`r with(income.quintile, round(bottom.multiple[year == 2013 & quintile == 5], 2))` times
+the average income of the bottom 20% of earners in 2013.
+
+## Distribution of Households by Monthly Income
+
+Finally, I will explore the distribution of households by monttly income in Singapore.
+The raw data is shown in the table as follows.
+
+```{r distribution.data, results = 'asis'}
+income.distribution <- read.table('households-by-monthly-income.txt', header = T, check.names = F)
+kable(income.distribution, digits = 2, caption = 'Table of Household Proportion by Monthly Income')
+```
+
+Some data transformation is necessary as the umemployed proportions are not the interest of this exercise.
+I would exclude the percentages and scale up the rest of the percentages accordingly.
+
+```{r distribution.transform}
+# convert to long format
+income.distribution <- income.distribution %>%
+                            gather(income, percentage, -year)
+# exclude unemployed and rescale proportion
+income.distribution <- income.distribution %>%
+                            filter(income != 'unemployed') %>%
+                            droplevels() %>%
+                            group_by(year) %>%
+                            mutate(proportion = percentage / sum(percentage)) %>%
+                            ungroup()
+```
+
+### Line Graph of Household Proportion by Income Grooup
+
+Due to the large number of groups which also follow different trends, I have elected to split this into
+2 graphs.
+
+```{r distribution.line1, results = 'asis'}
+# for monthly income groups less than 7000
+income.distribution %>%
+    filter(income %in% levels(income)[1:7]) %>%
+    droplevels() %>%
+    ggvis(~factor(year), ~proportion, stroke = ~income) %>%
+    group_by(income) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Population Proportion', title_offset = 40) %>%
+    add_legend('stroke', title = 'Income Group')
+```
+
+This graph shows the proportion of households with monthly income less than 7000.
+The proportions in these income groups were generally decreasing, which is expected given
+the income growth experienced. 
+The proportion of households earning below 1000 fell below the year 2000 levels only
+after year 2009, however, it started at a very low base of 
+`r with(income.distribution, round(proportion[income == levels(income)[1] & year == 2000] * 100, digits = 2))`%
+
+```{r distribution.line2, results = 'asis'}
+# for monthly income groups more than 7000
+income.distribution %>%
+    filter(income %in% levels(income)[8:18]) %>%
+    droplevels() %>%
+    ggvis(~factor(year), ~proportion, stroke = ~income) %>%
+    group_by(income) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Population Proportion', title_offset = 40) %>%
+    add_legend('stroke', title = 'Income Group')
+```
+
+On the other hand, the proportions for the groups with monthly income above 7000 were generally increasing.
+The most exaggerated increase belonged to the group for the highest income group: 
+those making more than 20,000 per month.
+
+### Stacked Area Graph of Household Proportion by Monthly Income
+
+I think it may be more intersting to observe this distribution of household by a stacked area graph.
+
+```{r distribution.stackedarea, results = 'asis'}
+income.distribution %>%
+    group_by(year) %>%
+    mutate(to = cumsum(proportion), from = c(0, to[-n()])) %>%
+    ggvis(x = ~factor(year), fill = ~factor(income), opacity := 0.8) %>%
+    group_by(income) %>%
+    layer_ribbons(y = ~from, y2 = ~to) %>%
+    add_axis('x', title = 'Year') %>%
+    add_axis('y', title = 'Cumulative Population Proportion') %>%
+    add_legend('fill', title = 'Income Group')
+```
+
+Not the most informative graph as the accumlated effects of the lower income groups makes it difficult
+to make inference about the trends of the higher income groups.
+A simple observation would be that about 50% of the households made less than 7000 monthly in 2013.
+This is consistent with the median income level being 7000 monthly.
+The income groups that formed the largest proportion of households are those between 1000 and 7000
+and the higher earners above 20,000.
+
+The cumulative proportion of households by income group in 2013 is shown in the table below.
+
+```{r distribution.cumprop, results = 'asis'}
+income.distribution %>%
+    filter(year == 2013) %>%
+    mutate(cumprop = cumsum(proportion) * 100) %>%
+    select(income, cumprop) %>%
+    kable(digits = 2, caption = 'Table of Cumulative Proportion of Households by Income Group in 2013')
+```
+
+### Household Distribution by Monthly Income
+
+Finally, let's look at the change in household distribution by monthly income over the years.
+
+```{r distribution.year, results = 'asis'}
+income.distribution %>%
+    ggvis(~income, ~proportion, stroke = ~factor(year)) %>%
+    group_by(year) %>%
+    layer_lines() %>%
+    add_axis('x', title = 'Income Group', title_offset = 50,
+             properties = axis_props(labels = list(angle = 20, align = 'left'))) %>%
+    add_axis('y', title = 'Population Proportion', title_offset = 40) %>%
+    add_legend('stroke', title = 'Year')
+```
+
+As evident in the previous graphs, the proportion of households with income less than 6000 have been decreasing,
+with the proportions moving to income groups more than 7000.
+The group earning between 2000 and 3000 have traditionally formed the largest proportion of household in Singapore.
+However, the proportion of household earning more than 20,000 formed the largest proportion in the latest
+data in year 2013.
+
+## Conclusion
+
+I hope this visualisation exercise of household income data of Singapore has given some insights
+into the distribution and trends of income in Singapore.
+It has definitely been a good practice for me in using the data wrangling and visualisation packages
+by [Hadley Wickham](http://had.co.nz/) (i.e. `dplyr`, `tidyr`, `ggvis`) 
+and also writing reports in R Markdown.
