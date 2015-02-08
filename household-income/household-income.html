@@ -229,27 +229,27 @@ kable(income.average, caption = 'Table of Mean and Median Household Income')</co
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Income', title_offset = 60) %&gt;%
     add_legend('stroke', title = 'Measure')</code></pre>
-<p><div id="plot_id278799574-container" class="ggvis-output-container">
-<div id="plot_id278799574" class="ggvis-output"></div>
+<p><div id="plot_id354838499-container" class="ggvis-output-container">
+<div id="plot_id354838499" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id278799574_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id278799574" data-renderer="svg">SVG</a>
+<a id="plot_id354838499_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id354838499" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id278799574_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id278799574" data-renderer="canvas">Canvas</a>
+<a id="plot_id354838499_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id354838499" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id278799574_download" class="ggvis-download" data-plot-id="plot_id278799574">Download</a>
+<a id="plot_id354838499_download" class="ggvis-download" data-plot-id="plot_id354838499">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id278799574_spec = {
+var plot_id354838499_spec = {
     "data": [
         {
             "name": ".0/arrange1",
@@ -438,7 +438,7 @@ var plot_id278799574_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id278799574").parseSpec(plot_id278799574_spec);
+ggvis.getPlot("plot_id354838499").parseSpec(plot_id354838499_spec);
 </script></p>
 <p>A few observations can be made. From year 2000 to 2004, the average income levels were quite flat. This was possibly due to the dot-com bust, which led to a recession in Singapore. From 2004 onwards, income levels increased quickly except during 2009 due to the subprime mortgage crisis.</p>
 <p>Another observation is that the mean income is substantially higher than the median income. This is one of the arguments why mean income is not a good indicator of income levels in a country. Mean income is not a robust measure of average as it is affected by extreme values. A right-skewed income distribution will shift the mean income level even though this does not mean an elevated income for the majority of the population. The skewed income distribution of Singapore will be more evident later when we explore the average income by deciles. In general, it is always a good idea to be wary of mean or average values if the distribution of the variable is not clearly known.</p>
@@ -459,27 +459,27 @@ income.average %&gt;%
     layer_lines() %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Mean-Median Ratio', title_offset = 50)</code></pre>
-<p><div id="plot_id443008645-container" class="ggvis-output-container">
-<div id="plot_id443008645" class="ggvis-output"></div>
+<p><div id="plot_id275550757-container" class="ggvis-output-container">
+<div id="plot_id275550757" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id443008645_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443008645" data-renderer="svg">SVG</a>
+<a id="plot_id275550757_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id275550757" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id443008645_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443008645" data-renderer="canvas">Canvas</a>
+<a id="plot_id275550757_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id275550757" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id443008645_download" class="ggvis-download" data-plot-id="plot_id443008645">Download</a>
+<a id="plot_id275550757_download" class="ggvis-download" data-plot-id="plot_id275550757">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id443008645_spec = {
+var plot_id275550757_spec = {
     "data": [
         {
             "name": ".0/arrange1",
@@ -605,7 +605,7 @@ var plot_id443008645_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id443008645").parseSpec(plot_id443008645_spec);
+ggvis.getPlot("plot_id275550757").parseSpec(plot_id275550757_spec);
 </script></p>
 <p>At first glance, it seems that, except for 2013, the mean-median ratio has been in a general increasing trend, which means that high earners are growing their income faster than low earners. However, the increase has been relatively low, at 3.93% over the 12-year period. This suggests that the income distribution might be quite consistent over the period. I think including zero into the y-axis will make this more obvious, but have not figured out how to set the limits of the axes with <code>ggvis</code>. This is also the reason why the axes in all other plots are unadjusted even though it would be a good idea to include zero in the y-axis in a few other plots to give a right sense of scale.</p>
 </div>
@@ -844,27 +844,27 @@ income.decile &lt;- mutate(income.decile, decile = factor(decile, levels = c(1:1
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Average Income', title_offset = 60) %&gt;%
     add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')</code></pre>
-<p><div id="plot_id163264067-container" class="ggvis-output-container">
-<div id="plot_id163264067" class="ggvis-output"></div>
+<p><div id="plot_id781160081-container" class="ggvis-output-container">
+<div id="plot_id781160081" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id163264067_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id163264067" data-renderer="svg">SVG</a>
+<a id="plot_id781160081_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id781160081" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id163264067_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id163264067" data-renderer="canvas">Canvas</a>
+<a id="plot_id781160081_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id781160081" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id163264067_download" class="ggvis-download" data-plot-id="plot_id163264067">Download</a>
+<a id="plot_id781160081_download" class="ggvis-download" data-plot-id="plot_id781160081">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id163264067_spec = {
+var plot_id781160081_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1043,7 +1043,7 @@ var plot_id163264067_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id163264067").parseSpec(plot_id163264067_spec);
+ggvis.getPlot("plot_id781160081").parseSpec(plot_id781160081_spec);
 </script></p>
 <p>It immediately becomes obvious how skewed the income distribution of Singapore is, with the top decile earners making substantially more than even the 2nd highest decile earners. The general trend across the deciles is similar to the overall average income level.</p>
 <p>Curiously, the top decile suffered a significant income drop in year 2013, while the other deciles were unaffected. I am puzzled as to the exact cause.</p>
@@ -1068,27 +1068,27 @@ income.decile %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Income Index to Year 2000 Levels', title_offset = 40) %&gt;%
     add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')</code></pre>
-<p><div id="plot_id955386420-container" class="ggvis-output-container">
-<div id="plot_id955386420" class="ggvis-output"></div>
+<p><div id="plot_id845228945-container" class="ggvis-output-container">
+<div id="plot_id845228945" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id955386420_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id955386420" data-renderer="svg">SVG</a>
+<a id="plot_id845228945_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845228945" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id955386420_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id955386420" data-renderer="canvas">Canvas</a>
+<a id="plot_id845228945_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845228945" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id955386420_download" class="ggvis-download" data-plot-id="plot_id955386420">Download</a>
+<a id="plot_id845228945_download" class="ggvis-download" data-plot-id="plot_id845228945">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id955386420_spec = {
+var plot_id845228945_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1267,7 +1267,7 @@ var plot_id955386420_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id955386420").parseSpec(plot_id955386420_spec);
+ggvis.getPlot("plot_id845228945").parseSpec(plot_id845228945_spec);
 </script></p>
 <p>Income levels generally experienced healthy growth from year 2004 onwards. The bottom income earners actually suffered stagnant income growth all the way till year 2009 and have significantly lagged behind the other deciles as a result.</p>
 <p>It can also be observed that the extent income growth of each decile tend to follow decile levels, with higher deciles experiencing better growth than lower deciles.</p>
@@ -1373,27 +1373,27 @@ income.decile &lt;- income.decile %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Income Proportion', title_offset = 50) %&gt;%
     add_legend('stroke', title = 'Decile')</code></pre>
-<p><div id="plot_id847719941-container" class="ggvis-output-container">
-<div id="plot_id847719941" class="ggvis-output"></div>
+<p><div id="plot_id380788553-container" class="ggvis-output-container">
+<div id="plot_id380788553" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id847719941_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id847719941" data-renderer="svg">SVG</a>
+<a id="plot_id380788553_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id380788553" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id847719941_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id847719941" data-renderer="canvas">Canvas</a>
+<a id="plot_id380788553_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id380788553" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id847719941_download" class="ggvis-download" data-plot-id="plot_id847719941">Download</a>
+<a id="plot_id380788553_download" class="ggvis-download" data-plot-id="plot_id380788553">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id847719941_spec = {
+var plot_id380788553_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1562,7 +1562,7 @@ var plot_id847719941_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id847719941").parseSpec(plot_id847719941_spec);
+ggvis.getPlot("plot_id380788553").parseSpec(plot_id380788553_spec);
 </script></p>
 <p>Despite the unequal distribution of income, it can be observed from this graph that the distribution has been quite consistent through the years. Except for the slight increase in income proportion of the top decile earners, the income proportion is quite flat for each decile from year 2000 to year 2013.</p>
 </div>
@@ -1578,27 +1578,27 @@ ggvis.getPlot("plot_id847719941").parseSpec(plot_id847719941_spec);
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Cumulative Income Proportion') %&gt;%
     add_legend('fill', title = 'Decile')</code></pre>
-<p><div id="plot_id865945396-container" class="ggvis-output-container">
-<div id="plot_id865945396" class="ggvis-output"></div>
+<p><div id="plot_id673486270-container" class="ggvis-output-container">
+<div id="plot_id673486270" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id865945396_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id865945396" data-renderer="svg">SVG</a>
+<a id="plot_id673486270_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id673486270" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id865945396_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id865945396" data-renderer="canvas">Canvas</a>
+<a id="plot_id673486270_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id673486270" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id865945396_download" class="ggvis-download" data-plot-id="plot_id865945396">Download</a>
+<a id="plot_id673486270_download" class="ggvis-download" data-plot-id="plot_id673486270">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id865945396_spec = {
+var plot_id673486270_spec = {
     "data": [
         {
             "name": ".0/group_by1_flat",
@@ -1775,7 +1775,7 @@ var plot_id865945396_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id865945396").parseSpec(plot_id865945396_spec);
+ggvis.getPlot("plot_id673486270").parseSpec(plot_id673486270_spec);
 </script></p>
 <p>It can be observed that the top decile earners make more than the total income of the bottom 5 deciles earners. In other words, the top 10% of earners made more income than the bottom 50% of income earners. WOW! Similar comparisons can be made with top 2 vs bottom 6 deciles and top 3 vs bottom 7 deciles. The top 30% of earners are responsible for more than half the total income of Singapore earners.</p>
 <p>The cumulative proportion of income in Singapore from the bottom decile is show in the table below.</p>
@@ -1849,27 +1849,27 @@ ggvis.getPlot("plot_id865945396").parseSpec(plot_id865945396_spec);
     add_axis('x', title = 'Cumulative Population Proportion') %&gt;%
     add_axis('y', title = 'Cumulative Income Proportion', title_offset = 40) %&gt;%
     add_legend('stroke', title = 'Year', values = 2000:2013)</code></pre>
-<p><div id="plot_id220014987-container" class="ggvis-output-container">
-<div id="plot_id220014987" class="ggvis-output"></div>
+<p><div id="plot_id992566874-container" class="ggvis-output-container">
+<div id="plot_id992566874" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id220014987_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id220014987" data-renderer="svg">SVG</a>
+<a id="plot_id992566874_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id992566874" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id220014987_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id220014987" data-renderer="canvas">Canvas</a>
+<a id="plot_id992566874_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id992566874" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id220014987_download" class="ggvis-download" data-plot-id="plot_id220014987">Download</a>
+<a id="plot_id992566874_download" class="ggvis-download" data-plot-id="plot_id992566874">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id220014987_spec = {
+var plot_id992566874_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2054,7 +2054,7 @@ var plot_id220014987_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id220014987").parseSpec(plot_id220014987_spec);
+ggvis.getPlot("plot_id992566874").parseSpec(plot_id992566874_spec);
 </script></p>
 <p>Consistent with the observation with the stacked area graph, the distribution of income is fairly contant as shown by the well overlayed curves of 14 years of data.</p>
 </div>
@@ -2075,27 +2075,27 @@ income.decile %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Multiple') %&gt;%
     add_legend('stroke', title = 'Decile')</code></pre>
-<p><div id="plot_id843965770-container" class="ggvis-output-container">
-<div id="plot_id843965770" class="ggvis-output"></div>
+<p><div id="plot_id480407310-container" class="ggvis-output-container">
+<div id="plot_id480407310" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id843965770_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id843965770" data-renderer="svg">SVG</a>
+<a id="plot_id480407310_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id480407310" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id843965770_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id843965770" data-renderer="canvas">Canvas</a>
+<a id="plot_id480407310_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id480407310" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id843965770_download" class="ggvis-download" data-plot-id="plot_id843965770">Download</a>
+<a id="plot_id480407310_download" class="ggvis-download" data-plot-id="plot_id480407310">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id843965770_spec = {
+var plot_id480407310_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2263,7 +2263,7 @@ var plot_id843965770_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id843965770").parseSpec(plot_id843965770_spec);
+ggvis.getPlot("plot_id480407310").parseSpec(plot_id480407310_spec);
 </script></p>
 <p>It can be observed that the top decile earned on average 17.34 times the average income of the bottom decile in 2013. Even the average income 2nd highest decile was 9.92 times the bottom decile in 2013. While the ratios to the bottom decile had increase from year 2000, the consolation is that they has been relatively flat from around 2008 and 2009 onwards. This meant that the bottom decile has been able to grow their income at the same proportion as the other deciles.</p>
 </div>
@@ -2290,27 +2290,27 @@ income.quintile %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Multiple') %&gt;%
     add_legend('stroke', title = 'Quintile')</code></pre>
-<p><div id="plot_id509429098-container" class="ggvis-output-container">
-<div id="plot_id509429098" class="ggvis-output"></div>
+<p><div id="plot_id677406055-container" class="ggvis-output-container">
+<div id="plot_id677406055" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id509429098_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509429098" data-renderer="svg">SVG</a>
+<a id="plot_id677406055_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id677406055" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id509429098_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509429098" data-renderer="canvas">Canvas</a>
+<a id="plot_id677406055_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id677406055" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id509429098_download" class="ggvis-download" data-plot-id="plot_id509429098">Download</a>
+<a id="plot_id677406055_download" class="ggvis-download" data-plot-id="plot_id677406055">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id509429098_spec = {
+var plot_id677406055_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2478,7 +2478,7 @@ var plot_id509429098_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id509429098").parseSpec(plot_id509429098_spec);
+ggvis.getPlot("plot_id677406055").parseSpec(plot_id677406055_spec);
 </script></p>
 <p>The general trend is the same, with the top 20% earning 9.29 times the average income of the bottom 20% of earners in 2013.</p>
 </div>
@@ -2849,27 +2849,27 @@ income.distribution %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Population Proportion', title_offset = 40) %&gt;%
     add_legend('stroke', title = 'Income Group')</code></pre>
-<p><div id="plot_id877590663-container" class="ggvis-output-container">
-<div id="plot_id877590663" class="ggvis-output"></div>
+<p><div id="plot_id868340416-container" class="ggvis-output-container">
+<div id="plot_id868340416" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id877590663_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id877590663" data-renderer="svg">SVG</a>
+<a id="plot_id868340416_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id868340416" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id877590663_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id877590663" data-renderer="canvas">Canvas</a>
+<a id="plot_id868340416_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id868340416" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id877590663_download" class="ggvis-download" data-plot-id="plot_id877590663">Download</a>
+<a id="plot_id868340416_download" class="ggvis-download" data-plot-id="plot_id868340416">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id877590663_spec = {
+var plot_id868340416_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -3038,7 +3038,7 @@ var plot_id877590663_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id877590663").parseSpec(plot_id877590663_spec);
+ggvis.getPlot("plot_id868340416").parseSpec(plot_id868340416_spec);
 </script></p>
 <p>This graph shows the proportion of households with monthly income less than 7000. The proportions in these income groups were generally decreasing, which is expected given the income growth experienced. The proportion of households earning below 1000 fell below the year 2000 levels only after year 2009, however, it started at a very low base of 4.26%</p>
 <pre class="r"><code># for monthly income groups more than 7000
@@ -3051,27 +3051,27 @@ income.distribution %&gt;%
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Population Proportion', title_offset = 40) %&gt;%
     add_legend('stroke', title = 'Income Group')</code></pre>
-<p><div id="plot_id698886606-container" class="ggvis-output-container">
-<div id="plot_id698886606" class="ggvis-output"></div>
+<p><div id="plot_id845694015-container" class="ggvis-output-container">
+<div id="plot_id845694015" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id698886606_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id698886606" data-renderer="svg">SVG</a>
+<a id="plot_id845694015_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845694015" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id698886606_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id698886606" data-renderer="canvas">Canvas</a>
+<a id="plot_id845694015_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845694015" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id698886606_download" class="ggvis-download" data-plot-id="plot_id698886606">Download</a>
+<a id="plot_id845694015_download" class="ggvis-download" data-plot-id="plot_id845694015">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id698886606_spec = {
+var plot_id845694015_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -3240,7 +3240,7 @@ var plot_id698886606_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id698886606").parseSpec(plot_id698886606_spec);
+ggvis.getPlot("plot_id845694015").parseSpec(plot_id845694015_spec);
 </script></p>
 <p>On the other hand, the proportions for the groups with monthly income above 7000 were generally increasing. The most exaggerated increase belonged to the group for the highest income group: those making more than 20,000 per month.</p>
 </div>
@@ -3256,27 +3256,27 @@ ggvis.getPlot("plot_id698886606").parseSpec(plot_id698886606_spec);
     add_axis('x', title = 'Year') %&gt;%
     add_axis('y', title = 'Cumulative Population Proportion') %&gt;%
     add_legend('fill', title = 'Income Group')</code></pre>
-<p><div id="plot_id120971872-container" class="ggvis-output-container">
-<div id="plot_id120971872" class="ggvis-output"></div>
+<p><div id="plot_id993948120-container" class="ggvis-output-container">
+<div id="plot_id993948120" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id120971872_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id120971872" data-renderer="svg">SVG</a>
+<a id="plot_id993948120_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id993948120" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id120971872_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id120971872" data-renderer="canvas">Canvas</a>
+<a id="plot_id993948120_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id993948120" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id120971872_download" class="ggvis-download" data-plot-id="plot_id120971872">Download</a>
+<a id="plot_id993948120_download" class="ggvis-download" data-plot-id="plot_id993948120">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id120971872_spec = {
+var plot_id993948120_spec = {
     "data": [
         {
             "name": ".0/group_by1_flat",
@@ -3452,7 +3452,7 @@ var plot_id120971872_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id120971872").parseSpec(plot_id120971872_spec);
+ggvis.getPlot("plot_id993948120").parseSpec(plot_id993948120_spec);
 </script></p>
 <p>Not the most informative graph as the accumlated effects of the lower income groups makes it difficult to make inference about the trends of the higher income groups. A simple observation would be that about 50% of the households made less than 7000 monthly in 2013. This is consistent with the median income level being 7000 monthly. The income groups that formed the largest proportion of households are those between 1000 and 7000 and the higher earners above 20,000.</p>
 <p>The cumulative proportion of households by income group in 2013 is shown in the table below.</p>
@@ -3556,27 +3556,27 @@ ggvis.getPlot("plot_id120971872").parseSpec(plot_id120971872_spec);
              properties = axis_props(labels = list(angle = 20, align = 'left'))) %&gt;%
     add_axis('y', title = 'Population Proportion', title_offset = 40) %&gt;%
     add_legend('stroke', title = 'Year')</code></pre>
-<p><div id="plot_id345073173-container" class="ggvis-output-container">
-<div id="plot_id345073173" class="ggvis-output"></div>
+<p><div id="plot_id966455674-container" class="ggvis-output-container">
+<div id="plot_id966455674" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id345073173_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id345073173" data-renderer="svg">SVG</a>
+<a id="plot_id966455674_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id966455674" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id345073173_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id345073173" data-renderer="canvas">Canvas</a>
+<a id="plot_id966455674_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id966455674" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id345073173_download" class="ggvis-download" data-plot-id="plot_id345073173">Download</a>
+<a id="plot_id966455674_download" class="ggvis-download" data-plot-id="plot_id966455674">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id345073173_spec = {
+var plot_id966455674_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -3756,7 +3756,7 @@ var plot_id345073173_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id345073173").parseSpec(plot_id345073173_spec);
+ggvis.getPlot("plot_id966455674").parseSpec(plot_id966455674_spec);
 </script></p>
 <p>As evident in the previous graphs, the proportion of households with income less than 6000 have been decreasing, with the proportions moving to income groups more than 7000. The group earning between 2000 and 3000 have traditionally formed the largest proportion of household in Singapore. However, the proportion of household earning more than 20,000 formed the largest proportion in the latest data in year 2013.</p>
 </div>
@@ -3764,6 +3764,7 @@ ggvis.getPlot("plot_id345073173").parseSpec(plot_id345073173_spec);
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
 <p>I hope this visualisation exercise of household income data of Singapore has given some insights into the distribution and trends of income in Singapore. It has definitely been a good practice for me in using the data wrangling and visualisation packages by <a href="http://had.co.nz/">Hadley Wickham</a> (i.e. <code>dplyr</code>, <code>tidyr</code>, <code>ggvis</code>) and also writing reports in R Markdown.</p>
+<p>Future work that can be explored includes the household expenses data published also by SingStats. Other than monthly expenses data, it also contains breakdown of monthly income by a few categories. These may allow further breakdown of monthly income distribution. Inflation data can also be included to investigate real income growth and give a better comparison of income over the period. Another information that can be added is monthly income at various percentile. Unfortunately, it is not part of the information published by SingStats.</p>
 </div>
 
 

@@ -101,27 +101,27 @@ income.average %>%
     add_legend('stroke', title = 'Measure')
 ```
 
-<!--html_preserve--><div id="plot_id278799574-container" class="ggvis-output-container">
-<div id="plot_id278799574" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id354838499-container" class="ggvis-output-container">
+<div id="plot_id354838499" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id278799574_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id278799574" data-renderer="svg">SVG</a>
+<a id="plot_id354838499_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id354838499" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id278799574_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id278799574" data-renderer="canvas">Canvas</a>
+<a id="plot_id354838499_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id354838499" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id278799574_download" class="ggvis-download" data-plot-id="plot_id278799574">Download</a>
+<a id="plot_id354838499_download" class="ggvis-download" data-plot-id="plot_id354838499">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id278799574_spec = {
+var plot_id354838499_spec = {
     "data": [
         {
             "name": ".0/arrange1",
@@ -310,7 +310,7 @@ var plot_id278799574_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id278799574").parseSpec(plot_id278799574_spec);
+ggvis.getPlot("plot_id354838499").parseSpec(plot_id354838499_spec);
 </script><!--/html_preserve-->
 
 A few observations can be made. From year 2000 to 2004, the average income levels were quite flat. 
@@ -360,27 +360,27 @@ income.average %>%
     add_axis('y', title = 'Mean-Median Ratio', title_offset = 50)
 ```
 
-<!--html_preserve--><div id="plot_id443008645-container" class="ggvis-output-container">
-<div id="plot_id443008645" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id275550757-container" class="ggvis-output-container">
+<div id="plot_id275550757" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id443008645_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443008645" data-renderer="svg">SVG</a>
+<a id="plot_id275550757_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id275550757" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id443008645_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443008645" data-renderer="canvas">Canvas</a>
+<a id="plot_id275550757_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id275550757" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id443008645_download" class="ggvis-download" data-plot-id="plot_id443008645">Download</a>
+<a id="plot_id275550757_download" class="ggvis-download" data-plot-id="plot_id275550757">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id443008645_spec = {
+var plot_id275550757_spec = {
     "data": [
         {
             "name": ".0/arrange1",
@@ -506,7 +506,7 @@ var plot_id443008645_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id443008645").parseSpec(plot_id443008645_spec);
+ggvis.getPlot("plot_id275550757").parseSpec(plot_id275550757_spec);
 </script><!--/html_preserve-->
 
 At first glance, it seems that, except for 2013, the mean-median ratio has been in a general increasing trend, 
@@ -594,27 +594,27 @@ income.decile %>%
     add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')
 ```
 
-<!--html_preserve--><div id="plot_id163264067-container" class="ggvis-output-container">
-<div id="plot_id163264067" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id781160081-container" class="ggvis-output-container">
+<div id="plot_id781160081" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id163264067_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id163264067" data-renderer="svg">SVG</a>
+<a id="plot_id781160081_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id781160081" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id163264067_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id163264067" data-renderer="canvas">Canvas</a>
+<a id="plot_id781160081_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id781160081" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id163264067_download" class="ggvis-download" data-plot-id="plot_id163264067">Download</a>
+<a id="plot_id781160081_download" class="ggvis-download" data-plot-id="plot_id781160081">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id163264067_spec = {
+var plot_id781160081_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -793,7 +793,7 @@ var plot_id163264067_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id163264067").parseSpec(plot_id163264067_spec);
+ggvis.getPlot("plot_id781160081").parseSpec(plot_id781160081_spec);
 </script><!--/html_preserve-->
 
 It immediately becomes obvious how skewed the income distribution of Singapore is,
@@ -828,27 +828,27 @@ income.decile %>%
     add_legend(c('stroke', 'strokeWidth','opacity'), title = 'Decile')
 ```
 
-<!--html_preserve--><div id="plot_id955386420-container" class="ggvis-output-container">
-<div id="plot_id955386420" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id845228945-container" class="ggvis-output-container">
+<div id="plot_id845228945" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id955386420_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id955386420" data-renderer="svg">SVG</a>
+<a id="plot_id845228945_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845228945" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id955386420_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id955386420" data-renderer="canvas">Canvas</a>
+<a id="plot_id845228945_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845228945" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id955386420_download" class="ggvis-download" data-plot-id="plot_id955386420">Download</a>
+<a id="plot_id845228945_download" class="ggvis-download" data-plot-id="plot_id845228945">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id955386420_spec = {
+var plot_id845228945_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1027,7 +1027,7 @@ var plot_id955386420_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id955386420").parseSpec(plot_id955386420_spec);
+ggvis.getPlot("plot_id845228945").parseSpec(plot_id845228945_spec);
 </script><!--/html_preserve-->
 
 Income levels generally experienced healthy growth from year 2004 onwards.
@@ -1101,27 +1101,27 @@ income.decile %>%
     add_legend('stroke', title = 'Decile')
 ```
 
-<!--html_preserve--><div id="plot_id847719941-container" class="ggvis-output-container">
-<div id="plot_id847719941" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id380788553-container" class="ggvis-output-container">
+<div id="plot_id380788553" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id847719941_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id847719941" data-renderer="svg">SVG</a>
+<a id="plot_id380788553_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id380788553" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id847719941_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id847719941" data-renderer="canvas">Canvas</a>
+<a id="plot_id380788553_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id380788553" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id847719941_download" class="ggvis-download" data-plot-id="plot_id847719941">Download</a>
+<a id="plot_id380788553_download" class="ggvis-download" data-plot-id="plot_id380788553">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id847719941_spec = {
+var plot_id380788553_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1290,7 +1290,7 @@ var plot_id847719941_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id847719941").parseSpec(plot_id847719941_spec);
+ggvis.getPlot("plot_id380788553").parseSpec(plot_id380788553_spec);
 </script><!--/html_preserve-->
 
 Despite the unequal distribution of income, it can be observed from this graph that the distribution
@@ -1315,27 +1315,27 @@ income.decile %>%
     add_legend('fill', title = 'Decile')
 ```
 
-<!--html_preserve--><div id="plot_id865945396-container" class="ggvis-output-container">
-<div id="plot_id865945396" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id673486270-container" class="ggvis-output-container">
+<div id="plot_id673486270" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id865945396_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id865945396" data-renderer="svg">SVG</a>
+<a id="plot_id673486270_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id673486270" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id865945396_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id865945396" data-renderer="canvas">Canvas</a>
+<a id="plot_id673486270_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id673486270" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id865945396_download" class="ggvis-download" data-plot-id="plot_id865945396">Download</a>
+<a id="plot_id673486270_download" class="ggvis-download" data-plot-id="plot_id673486270">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id865945396_spec = {
+var plot_id673486270_spec = {
     "data": [
         {
             "name": ".0/group_by1_flat",
@@ -1512,7 +1512,7 @@ var plot_id865945396_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id865945396").parseSpec(plot_id865945396_spec);
+ggvis.getPlot("plot_id673486270").parseSpec(plot_id673486270_spec);
 </script><!--/html_preserve-->
 
 It can be observed that the top decile earners make more than 
@@ -1569,27 +1569,27 @@ income.decile %>%
     add_legend('stroke', title = 'Year', values = 2000:2013)
 ```
 
-<!--html_preserve--><div id="plot_id220014987-container" class="ggvis-output-container">
-<div id="plot_id220014987" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id992566874-container" class="ggvis-output-container">
+<div id="plot_id992566874" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id220014987_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id220014987" data-renderer="svg">SVG</a>
+<a id="plot_id992566874_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id992566874" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id220014987_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id220014987" data-renderer="canvas">Canvas</a>
+<a id="plot_id992566874_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id992566874" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id220014987_download" class="ggvis-download" data-plot-id="plot_id220014987">Download</a>
+<a id="plot_id992566874_download" class="ggvis-download" data-plot-id="plot_id992566874">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id220014987_spec = {
+var plot_id992566874_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1774,7 +1774,7 @@ var plot_id220014987_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id220014987").parseSpec(plot_id220014987_spec);
+ggvis.getPlot("plot_id992566874").parseSpec(plot_id992566874_spec);
 </script><!--/html_preserve-->
 
 Consistent with the observation with the stacked area graph, the distribution of income
@@ -1804,27 +1804,27 @@ income.decile %>%
     add_legend('stroke', title = 'Decile')
 ```
 
-<!--html_preserve--><div id="plot_id843965770-container" class="ggvis-output-container">
-<div id="plot_id843965770" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id480407310-container" class="ggvis-output-container">
+<div id="plot_id480407310" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id843965770_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id843965770" data-renderer="svg">SVG</a>
+<a id="plot_id480407310_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id480407310" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id843965770_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id843965770" data-renderer="canvas">Canvas</a>
+<a id="plot_id480407310_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id480407310" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id843965770_download" class="ggvis-download" data-plot-id="plot_id843965770">Download</a>
+<a id="plot_id480407310_download" class="ggvis-download" data-plot-id="plot_id480407310">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id843965770_spec = {
+var plot_id480407310_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -1992,7 +1992,7 @@ var plot_id843965770_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id843965770").parseSpec(plot_id843965770_spec);
+ggvis.getPlot("plot_id480407310").parseSpec(plot_id480407310_spec);
 </script><!--/html_preserve-->
 
 It can be observed that the top decile earned on average
@@ -2034,27 +2034,27 @@ income.quintile %>%
     add_legend('stroke', title = 'Quintile')
 ```
 
-<!--html_preserve--><div id="plot_id509429098-container" class="ggvis-output-container">
-<div id="plot_id509429098" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id677406055-container" class="ggvis-output-container">
+<div id="plot_id677406055" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id509429098_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509429098" data-renderer="svg">SVG</a>
+<a id="plot_id677406055_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id677406055" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id509429098_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509429098" data-renderer="canvas">Canvas</a>
+<a id="plot_id677406055_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id677406055" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id509429098_download" class="ggvis-download" data-plot-id="plot_id509429098">Download</a>
+<a id="plot_id677406055_download" class="ggvis-download" data-plot-id="plot_id677406055">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id509429098_spec = {
+var plot_id677406055_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2222,7 +2222,7 @@ var plot_id509429098_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id509429098").parseSpec(plot_id509429098_spec);
+ggvis.getPlot("plot_id677406055").parseSpec(plot_id677406055_spec);
 </script><!--/html_preserve-->
 
 The general trend is the same, with the top 20% earning 
@@ -2297,27 +2297,27 @@ income.distribution %>%
     add_legend('stroke', title = 'Income Group')
 ```
 
-<!--html_preserve--><div id="plot_id877590663-container" class="ggvis-output-container">
-<div id="plot_id877590663" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id868340416-container" class="ggvis-output-container">
+<div id="plot_id868340416" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id877590663_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id877590663" data-renderer="svg">SVG</a>
+<a id="plot_id868340416_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id868340416" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id877590663_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id877590663" data-renderer="canvas">Canvas</a>
+<a id="plot_id868340416_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id868340416" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id877590663_download" class="ggvis-download" data-plot-id="plot_id877590663">Download</a>
+<a id="plot_id868340416_download" class="ggvis-download" data-plot-id="plot_id868340416">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id877590663_spec = {
+var plot_id868340416_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2486,7 +2486,7 @@ var plot_id877590663_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id877590663").parseSpec(plot_id877590663_spec);
+ggvis.getPlot("plot_id868340416").parseSpec(plot_id868340416_spec);
 </script><!--/html_preserve-->
 
 This graph shows the proportion of households with monthly income less than 7000.
@@ -2510,27 +2510,27 @@ income.distribution %>%
     add_legend('stroke', title = 'Income Group')
 ```
 
-<!--html_preserve--><div id="plot_id698886606-container" class="ggvis-output-container">
-<div id="plot_id698886606" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id845694015-container" class="ggvis-output-container">
+<div id="plot_id845694015" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id698886606_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id698886606" data-renderer="svg">SVG</a>
+<a id="plot_id845694015_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845694015" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id698886606_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id698886606" data-renderer="canvas">Canvas</a>
+<a id="plot_id845694015_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845694015" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id698886606_download" class="ggvis-download" data-plot-id="plot_id698886606">Download</a>
+<a id="plot_id845694015_download" class="ggvis-download" data-plot-id="plot_id845694015">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id698886606_spec = {
+var plot_id845694015_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -2699,7 +2699,7 @@ var plot_id698886606_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id698886606").parseSpec(plot_id698886606_spec);
+ggvis.getPlot("plot_id845694015").parseSpec(plot_id845694015_spec);
 </script><!--/html_preserve-->
 
 On the other hand, the proportions for the groups with monthly income above 7000 were generally increasing.
@@ -2723,27 +2723,27 @@ income.distribution %>%
     add_legend('fill', title = 'Income Group')
 ```
 
-<!--html_preserve--><div id="plot_id120971872-container" class="ggvis-output-container">
-<div id="plot_id120971872" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id993948120-container" class="ggvis-output-container">
+<div id="plot_id993948120" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id120971872_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id120971872" data-renderer="svg">SVG</a>
+<a id="plot_id993948120_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id993948120" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id120971872_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id120971872" data-renderer="canvas">Canvas</a>
+<a id="plot_id993948120_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id993948120" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id120971872_download" class="ggvis-download" data-plot-id="plot_id120971872">Download</a>
+<a id="plot_id993948120_download" class="ggvis-download" data-plot-id="plot_id993948120">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id120971872_spec = {
+var plot_id993948120_spec = {
     "data": [
         {
             "name": ".0/group_by1_flat",
@@ -2919,7 +2919,7 @@ var plot_id120971872_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id120971872").parseSpec(plot_id120971872_spec);
+ggvis.getPlot("plot_id993948120").parseSpec(plot_id993948120_spec);
 </script><!--/html_preserve-->
 
 Not the most informative graph as the accumlated effects of the lower income groups makes it difficult
@@ -2981,27 +2981,27 @@ income.distribution %>%
     add_legend('stroke', title = 'Year')
 ```
 
-<!--html_preserve--><div id="plot_id345073173-container" class="ggvis-output-container">
-<div id="plot_id345073173" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id966455674-container" class="ggvis-output-container">
+<div id="plot_id966455674" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id345073173_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id345073173" data-renderer="svg">SVG</a>
+<a id="plot_id966455674_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id966455674" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id345073173_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id345073173" data-renderer="canvas">Canvas</a>
+<a id="plot_id966455674_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id966455674" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id345073173_download" class="ggvis-download" data-plot-id="plot_id345073173">Download</a>
+<a id="plot_id966455674_download" class="ggvis-download" data-plot-id="plot_id966455674">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id345073173_spec = {
+var plot_id966455674_spec = {
     "data": [
         {
             "name": ".0/group_by1/group_by2/arrange3_flat",
@@ -3181,7 +3181,7 @@ var plot_id345073173_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id345073173").parseSpec(plot_id345073173_spec);
+ggvis.getPlot("plot_id966455674").parseSpec(plot_id966455674_spec);
 </script><!--/html_preserve-->
 
 As evident in the previous graphs, the proportion of households with income less than 6000 have been decreasing,
@@ -3197,3 +3197,11 @@ into the distribution and trends of income in Singapore.
 It has definitely been a good practice for me in using the data wrangling and visualisation packages
 by [Hadley Wickham](http://had.co.nz/) (i.e. `dplyr`, `tidyr`, `ggvis`) 
 and also writing reports in R Markdown.
+
+Future work that can be explored includes the household expenses data published also by SingStats.
+Other than monthly expenses data, it also contains breakdown of monthly income by a few categories.
+These may allow further breakdown of monthly income distribution.
+Inflation data can also be included to investigate real income growth and 
+give a better comparison of income over the period.
+Another information that can be added is monthly income at various percentile. 
+Unfortunately, it is not part of the information published by SingStats.

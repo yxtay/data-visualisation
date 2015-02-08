@@ -526,3 +526,11 @@ into the distribution and trends of income in Singapore.
 It has definitely been a good practice for me in using the data wrangling and visualisation packages
 by [Hadley Wickham](http://had.co.nz/) (i.e. `dplyr`, `tidyr`, `ggvis`) 
 and also writing reports in R Markdown.
+
+Future work that can be explored includes the household expenses data published also by SingStats.
+Other than monthly expenses data, it also contains breakdown of monthly income by a few categories.
+These may allow further breakdown of monthly income distribution.
+Inflation data can also be included to investigate real income growth and 
+give a better comparison of income over the period.
+Another information that can be added is monthly income at various percentile. 
+Unfortunately, it is not part of the information published by SingStats.
